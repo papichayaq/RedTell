@@ -91,7 +91,7 @@ def extract_vesicle_number(img_dir):
 
     for img_path, mask_path in tqdm(zip(img_paths, mask_paths)):
 
-      assert img_path.split("/")[-1] == mask_path.split("/")[-1]
+      assert img_path.split("\\")[-1] == mask_path.split("\\")[-1]
       ca_img = np.asarray(Image.open(img_path).convert('L'))
       mask = np.array(Image.open(mask_path))
 
@@ -104,14 +104,14 @@ def extract_vesicle_number(img_dir):
         mask_i = np.where(mask==i, mask, 0)
         num_vesicles = count_vesicles(mask_i, vesicles)
         
-        img_name = os.path.join(os.path.dirname(img_dir), "images", img_path.split("/")[-1])
+        img_name = os.path.join(os.path.dirname(img_dir), "images", img_path.split("\\")[-1])
 
         vesicle_features.append({"image": img_name,
         "cell_id": i, 
         "fluo-4_num_visicles":num_vesicles})
 
       # save vesicle results
-      img_name = mask_path.split("/")[-1]
+      img_name = mask_path.split("\\")[-1]
       bf_img_path = os.path.join(os.path.dirname(img_dir), "images", img_name)
       bf_img = np.asarray(Image.open(bf_img_path).convert('L'))
       save_resutls_path = os.path.join(os.path.dirname(img_dir), "vesicle_results", img_name)

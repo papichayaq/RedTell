@@ -73,7 +73,7 @@ def extract_features_for_cells_in_single_img(img_path, mask_path,
 
         # add cell and image information:
         img_dir = os.path.dirname(os.path.dirname(img_path))
-        img_name = os.path.join(img_dir, "images", img_path.split("/")[-1])
+        img_name = os.path.join(img_dir, "images", img_path.split("\\")[-1])
         cell_features['image'] = img_name
         cell_features['cell_id'] = i
 
@@ -94,7 +94,7 @@ def extract_features_for_single_channel(img_dir):
 
   for img_path, mask_path in tqdm(zip(img_paths, mask_paths)):
 
-    assert img_path.split("/")[-1] == mask_path.split("/")[-1]
+    assert img_path.split("\\")[-1] == mask_path.split("\\")[-1]
 
     img_features = extract_features_for_cells_in_single_img(img_path, mask_path,
                                                             feature_extractor, region_props)

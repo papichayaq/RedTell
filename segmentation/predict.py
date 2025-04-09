@@ -68,7 +68,7 @@ def segment_images(img_dir, model):
 
               image_masks = image_masks.astype(np.uint8)
               image = np.array(img_raw.convert('RGB'))
-              img_name = img_path.split("/")[-1]
+              img_name = img_path.split("\\")[-1]
 
               # save masks
               save_masks = Image.fromarray(image_masks)

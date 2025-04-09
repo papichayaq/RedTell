@@ -42,7 +42,7 @@ def create_annotation_cells(data_dir, num_cells):
     cell_id= row[2]
 
     img = np.asarray(Image.open(img_path).convert('L'))
-    mask_path = os.path.join(os.path.dirname(os.path.dirname(img_path)), "masks", img_path.split("/")[-1])
+    mask_path = os.path.join(os.path.dirname(os.path.dirname(img_path)), "masks", img_path.split("\\")[-1])
     mask = np.array(Image.open(mask_path))
 
     # locate cell on the imagee

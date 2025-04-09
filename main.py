@@ -46,8 +46,8 @@ def classify(
         raise ValueError(f'too few samples: {num_training_samples}')
     elif num_training_samples < 1_000:
         learning_curve_sample_fractions = [
-            0.25, 0.5, 0.75, 1.0
-            #1.0
+            # 0.25, 0.5, 0.75, 1.0
+            1.0
         ]
     else:
         learning_curve_sample_fractions = [
